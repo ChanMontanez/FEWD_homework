@@ -1,15 +1,20 @@
 $(function(){
-	$("form").submit(function(e){
-		e.preventDefault();
-		var city=$("#city-type").val();
+		$("form").submit(function(e){
+			e.preventDefault();
 
-		var nyc = {"name":"NYC"}, {"name":"New York"}, {"name":"New York City"};
-		var la ={"name":"Los Angeles"}, {"name":"LA"}, {"name":"LAX"};
-		var sf = {"name":"SF"}, {"name":"San Francisco"}, {"name":"Bay Area"};
-		var sydney = {"name": "Sydney"}, {"name":"SYD"};
-		var austin = {"name":"Austin"}, {"name":"ATX"};
-		
-	if(nyc)
-		document.body.style.backgroundImage= "url("nyc.jpg")";
+			var city=$("#city-type").val().toLowerCase();
 
-})
+
+		if ((city === "nyc") || (city === "new york") || (city === "new york city")){
+			$("body").css("backgroundImage", "url('images/nyc.jpg')");
+		} else if ((city === "la")|| (city === "lax")|| (city === "los angeles")){
+			$("body").css("backgroundImage", "url('images/la.jpg')");
+		} else if ((city === "sf")||(city === "san francisco")||(city === "bay area")){
+			$("body").css("backgroundImage", "url('images/sf.jpg')");
+		} else if (city === "austin"){
+			$("body").css("backgroundImage", "url('images/austin.jpg')");
+		} else if ((city === "sydney")||(city === "syd")){
+			$("body").css("backgroundImage", "url('images/sidney.jpg')");
+		}
+	})
+});
